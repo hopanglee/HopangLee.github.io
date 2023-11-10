@@ -1,14 +1,13 @@
 ---
 layout: post
-title: Introducing Hydejack 9
+title: Jinyoneg Lee
 image: 
-  path: /assets/img/blog/jeremy-bishop@0,5x.jpg
+  path: /assets/img/blog/introduceImg.jpeg
 description: >
-  Version 9 is the most complete version of Hydejack yet.
-  Modernized design, big headlines, and big new features.
+  2022년 2월의 비오는 날 도쿄 롯본기에 가서 찍은 사진이다.
 sitemap: false
 ---
-
+의
 Version 9 is the most complete version of Hydejack yet.
 {:.lead}
 
