@@ -49,9 +49,9 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Skills
+  - title:             Introduction
     url:               /example/
-  - title:             Education
+  - title:             Skill & Education
     url:               /docs/
   - title:             Achivements
     url:               /about/
