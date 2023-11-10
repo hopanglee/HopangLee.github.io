@@ -17,10 +17,10 @@
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
-lang:                  en
+lang:                  en, ko
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Starter Kit
+title:                 Portfolio
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
@@ -28,8 +28,8 @@ description:           >
   Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
   with a focus on personal sites that are meant to impress.
 
-# A shorter description for the sidebar.
-tagline:               Change `tagline` in `_config.yml`
+# A shorter description for the sidebar영
+tagline:              이진영 `Jinyeong Lee`
 
 # A list of keywords for your blog
 keywords:              []
