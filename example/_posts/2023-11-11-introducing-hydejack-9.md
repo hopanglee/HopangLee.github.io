@@ -24,16 +24,16 @@ sitemap: false
 2019년 성균관대학교 19학번으로 소프트웨어학과에 입학하여, 여러 활동과 수업에 열심히 참여하였습니다.
 대표적인 활동으로는 성균SW멘토링에 참여하여 창현고등학교 학생들을 대상으로 Python을 교육하였습니다.
 또한, 게임 개발 스터디에 들어가 유니티를 배워 모바일 게임을 출시하였고, 산학협력프로그램에 참여하여 SK플래닛과 GPS와 AR을 활용한 리듬게임 개발을 진행하였습니다.
-<!-- The theme on which Hydejack is based was designed for a different era of the web. Hydejack has inherited many of its limitations, but over time I've made adjustments, such as centering the content column for better reading ergonomics. 
+<!-- The theme on which Hydejack is based was designed for a different era of the web. Hydejack has inherited many of its limitations, but over time I've made adjustments, such as centering the content column for better reading ergonomics. -->
 
-With version 9, Hydejack takes full advantage of large displays. Whether it's design indulgences such as oversized headlines, or quality of life improvements such as a floating table of contents, Hydejack now finds use for all that extra screen real estate[^1].  -->
+<!--With version 9, Hydejack takes full advantage of large displays. Whether it's design indulgences such as oversized headlines, or quality of life improvements such as a floating table of contents, Hydejack now finds use for all that extra screen real estate[^1].  -->
  
 ## 군대
 군대에서 전자계산병으로 근무하였으며, 부대 홈페이지 re-design을 담당하여 홈페이지 프론트엔드 디자인을 맡아 작업하였습니다.
 <!-- Hydejack 9 now lets you use ontent cards for both projects and posts. 
-The cards have been redesigned with a new hover style and drop shadows and they retain their unique transition-to-next-page animations, which now also work on the `blog` layout. The new `grid` layout lets you do that.
+The cards have been redesigned with a new hover style and drop shadows and they retain their unique transition-to-next-page animations, which now also work on the `blog` layout. The new `grid` layout lets you do that.-->
 
-Good images are key to making the most out of content cards. For that reason, a [chapter on images](../../docs/basics.md#adding-images) has been added to the documentation.대 -->
+<!--Good images are key to making the most out of content cards. For that reason, a [chapter on images](../../docs/basics.md#adding-images) has been added to the documentation.대 -->
  
 ## 현재
 성균관대학교 3학년에 재학 중이며, 6주간 진행되는 Hippo T&C의 직무체험프로그램에 참여 중이다.

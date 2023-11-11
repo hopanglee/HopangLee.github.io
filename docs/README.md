@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Documentation
+title: Skill & Education
 description: >
-  Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
+  제가 보유한 기술, 언어와 학업 성취에 관한 부분입니다.
 hide_description: true
 sitemap: false
 permalink: /docs/
