@@ -32,6 +32,7 @@ sitemap: false
 ### 성적
 #### 전공
 - 자료구조개론(3) A+
+
 #### 교양
 - 미분적분학1(3) A+
 - 일반물리학2(3) A+
@@ -44,5 +45,8 @@ sitemap: false
 ## 활동
 - 성균 SW 멘토링 : 멘토가 되어 창현고등학교 학생을 대상으로 Python 멘토링 교육을 실시
 - 게임개발스터디 (61315 GAME LAB) : Unity로 모바일 2D 게임 [마녀의숲] 개발 및 출시
+- 성균관대 소프트웨어학과 상해 중국 연수
+![중국연수](/assets/img/docs/china.jpg)
+ 
 
 [마녀의숲]: https://play.google.com/store/apps/details?id=com.study.prototype&pli=1
