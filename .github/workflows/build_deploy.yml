@@ -1,20 +1,24 @@
-
 name: pages build and deployment
+# 이 workflow의 이름
 
 on:
   push:
     branches: [ "master" ]
+# master branch에 push될 때 이 workflow를 실행한다.
 
 permissions:
   contents: read
+# contents에 대한 읽기 권한을 설정한다.
 
 jobs:
-  build:
+  build: # job의 이름
     runs-on: ubuntu-latest
+    # Ubuntu 최신 버전에서 작업을 실행한다.
+    
     steps:
-        
-    - name: Checkout
-      uses: actions/checkout@v3
+    # build 작업에 대한 단계
+    - name: Checkout # Step의 이름
+      uses: actions/checkout@v3 # actions폴더 내에 있는 checkout@v3를 실행하겠다.
       with:
         ref: master
         submodules: recursive
@@ -27,36 +31,47 @@ jobs:
         fetch-tags: false
         lfs: false
         set-safe-directory: true
-      
-    - name: Build with Jekyll
-      uses: actions/jekyll-build-pages@v1
+        # HopangLee/HopangLee.github.io 리포지토리를 'master' 브랜치로 체크아웃한다.
+        
+    - name: Build with Jekyll # Step의 이름
+      uses: actions/jekyll-build-pages@v1 # actions폴더 내에 있는 jekyll-build-pages@v1를 실행하겠다.
       with:
         source: .
         destination: ./_site
         future: false
         build_revision: 81df6075afbfb9dbb2f13957e6e1282c4c9a82d9
         verbose: true
+    # Jekyll로 빌드합니다.
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
+      
+    - name: Upload artifact # Step의 이름
+      uses: actions/upload-pages-artifact@v2 # actions폴더 내에 있는 upload-pages-artifact@v2를 실행하겠다.
       with:
         name: github-pages
         path: ./_site
         retention-days: 1
-
+      # 빌드된 파일을 artifact로 업로드합니다.
+      
   deploy:
     permissions:
       contents: read
       pages: write
       id-token: write
+    # contents, pages, id-token에 대한 권한 설정한다.
+    
     runs-on: ubuntu-latest
+    # Ubuntu 최신 버전에서 작업을 실행한다.
+
     needs: build
+    # 'build' 작업이 성공적으로 완료되어야만 'deploy' 작업을 실행한다.
+    
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      # 'Development' 환경으로 설정하고 해당 환경의 URL을 정의합니다.
 
     steps:
-    - name: Deploy to Github Pages
+    - name: Deploy to Github Pages # Step의 이름
       uses: actions/deploy-pages@v2
       with:
         timeout: 600000
@@ -66,3 +81,4 @@ jobs:
         preview: false
         token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_site
+     # GitHub Pages에 배포합니다.
