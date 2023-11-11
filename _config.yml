@@ -54,6 +54,8 @@ menu:
   - title:             Skill & Education
     url:               /docs/
   - title:             Achivements
+    url:               /achivement/
+  - title:             About
     url:               /about/
 
 # Add links to the footer.
