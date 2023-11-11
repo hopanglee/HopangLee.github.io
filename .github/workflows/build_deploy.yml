@@ -28,18 +28,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Pull ghcr.io/actions/jekyll-build-pages:v1.0.9
-      run: |
-        pull down action image 'ghcr.io/actions/jekyll-build-pages:v1.0.9'
+    
+    # - name: Pull ghcr.io/actions/jekyll-build-pages:v1.0.9
+    #   run: |
+    #     Pull down action image 'ghcr.io/actions/jekyll-build-pages:v1.0.9'
         
     - name: Checkout
       uses: actions/checkout@v3
       with:
         ref: master
         submodules: recursive
-        # token: ***
         repository: HopangLee/HopangLee.github.io
         ssh-strict: true
         persist-credentials: true
