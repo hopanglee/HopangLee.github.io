@@ -3,15 +3,14 @@
 layout: list
 
 # The title of the tag's page.
-title: Example
+title: Introduction
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
 slug: example
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  This is a featured category, which have their own page.
-  Check out `_featured_tags/example.md` to learn how to create your own.
+ 저의 소개와 활동, 추억을 기록한 페이지입니다.
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
