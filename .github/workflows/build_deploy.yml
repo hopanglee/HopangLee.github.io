@@ -1,10 +1,8 @@
 name: Pages Build and Deployment
-# 이 workflow의 이름
 
 on:
   push:
     branches: [ "master" ]
-# master branch에 push될 때 이 workflow를 실행한다.
 
 permissions:
   contents: read
@@ -27,12 +25,19 @@ jobs:
           verbose: true
 
       - name: Verify _site folder  # 🔹 _site 폴더가 생성되었는지 확인
-        run: ls -la _site
+        run: |
+          if [ -d "_site" ]; then
+            echo "_site folder exists."
+            ls -la _site
+          else
+            echo "❌ _site folder not found! Build step failed."
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages  # ⚠️ 배포에서 사용될 artifact_name과 동일해야 함
+          name: github-pages
           path: ./_site
           retention-days: 1
 
@@ -50,6 +55,15 @@ jobs:
       url: ${{ steps.deploy-to-pages.outputs.page_url }}
 
     steps:
+      - name: Download artifact (Test)  # 🔹 다운로드 테스트 추가
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./artifact_test
+
+      - name: Verify downloaded artifact  # 🔹 다운로드된 파일 확인
+        run: ls -la ./artifact_test
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
