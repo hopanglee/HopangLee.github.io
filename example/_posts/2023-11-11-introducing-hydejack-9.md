@@ -5,6 +5,8 @@ image:
   path: /assets/img/blog/introduceImg.jpeg
 description: >
   2022년 2월의 비오는 날 도쿄 롯본기에 가서 찍은 사진이다.
+  2022年2月の雨の日に東京六本木で撮った写真です。
+  This is a photo taken on a rainy day in Roppongi, Tokyo, in February 2022.
 sitemap: false
 ---
 
