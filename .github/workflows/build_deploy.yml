@@ -17,6 +17,17 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Clear Bundler Cache  # 🔹 Gem 충돌 방지
+        run: bundle clean --force
+
+      - name: Install dependencies
+        run: bundle install
+
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
@@ -55,11 +66,11 @@ jobs:
       url: ${{ steps.deploy-to-pages.outputs.page_url }}
 
     steps:
-      - name: Download artifact (Test)  # 🔹 다운로드 테스트 추가
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: ./artifact_test
+          path: ./artifact_test  # 🔹 다운로드된 파일 위치 지정
 
       - name: Verify downloaded artifact  # 🔹 다운로드된 파일 확인
         run: ls -la ./artifact_test
@@ -67,4 +78,4 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
-          artifact_name: github-pages  # ⚠️ 업로드한 아티팩트 이름과 동일해야 함!
+          artifact_name: github-pages
