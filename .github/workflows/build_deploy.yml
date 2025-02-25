@@ -1,4 +1,4 @@
-name: pages build and deployment
+name: Pages Build and Deployment
 # 이 workflow의 이름
 
 on:
@@ -11,74 +11,62 @@ permissions:
 # contents에 대한 읽기 권한을 설정한다.
 
 jobs:
-  build: # job의 이름
+  build:
     runs-on: ubuntu-latest
     # Ubuntu 최신 버전에서 작업을 실행한다.
-    
-    steps:
-    # build 작업에 대한 단계
-    - name: Checkout # Step의 이름
-      uses: actions/checkout@v3 # actions폴더 내에 있는 checkout@v3를 실행하겠다.
-      with:
-        ref: master
-        submodules: recursive
-        repository: HopangLee/HopangLee.github.io
-        ssh-strict: true
-        persist-credentials: true
-        clean: true
-        sparse-checkout-cone-mode: true
-        fetch-depth: 1
-        fetch-tags: false
-        lfs: false
-        set-safe-directory: true
-        # HopangLee/HopangLee.github.io 리포지토리를 'master' 브랜치로 체크아웃한다.
-        
-    - name: Build with Jekyll # Step의 이름
-      uses: actions/jekyll-build-pages@v1 # actions폴더 내에 있는 jekyll-build-pages@v1를 실행하겠다.
-      with:
-        source: .
-        destination: ./_site
-        future: false
-        build_revision: 81df6075afbfb9dbb2f13957e6e1282c4c9a82d9
-        verbose: true
-    # Jekyll로 빌드합니다.
 
-      
-    - name: Upload artifact # Step의 이름
-      uses: actions/upload-artifact@v4 # actions폴더 내에 있는 upload-pages-artifact@v2를 실행하겠다.
-      with:
-        name: github-pages
-        path: ./_site
-        retention-days: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: master
+          submodules: recursive
+          repository: HopangLee/HopangLee.github.io
+          fetch-depth: 1
+          fetch-tags: false
+          persist-credentials: true
+      # 리포지토리를 master 브랜치로 체크아웃합니다.
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: .
+          destination: ./_site
+          verbose: true
+      # Jekyll로 빌드합니다.
+
+      - name: Verify _site folder
+        run: ls -la _site
+      # 빌드가 정상적으로 되었는지 확인합니다.
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages  # ⚠️ 배포에서 사용될 artifact_name과 동일하게 설정
+          path: ./_site
+          retention-days: 1
       # 빌드된 파일을 artifact로 업로드합니다.
-      
+
   deploy:
     permissions:
       contents: read
       pages: write
       id-token: write
-    # contents, pages, id-token에 대한 권한 설정한다.
-    
+    # contents, pages, id-token에 대한 권한을 설정합니다.
+
     runs-on: ubuntu-latest
-    # Ubuntu 최신 버전에서 작업을 실행한다.
+    # Ubuntu 최신 버전에서 작업을 실행합니다.
 
     needs: build
-    # 'build' 작업이 성공적으로 완료되어야만 'deploy' 작업을 실행한다.
-    
+    # 'build' 작업이 성공적으로 완료되어야만 'deploy' 작업을 실행합니다.
+
     environment:
-      name: 'Development'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-      # 'Development' 환경으로 설정하고 해당 환경의 URL을 정의합니다.
+      name: 'github-pages'
+      url: ${{ steps.deploy-to-pages.outputs.page_url }}
+      # GitHub Pages 배포 URL을 설정합니다.
 
     steps:
-    - name: Deploy to Github Pages # Step의 이름
-      uses: actions/deploy-pages@v2
-      with:
-        timeout: 600000
-        error_count: 10
-        reporting_interval: 5000
-        artifact_name: github-pages
-        preview: false
-        token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
-     # GitHub Pages에 배포합니다.
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
+        with:
+          artifact_name: github-pages  # ⚠️ build 단계에서 업로드한 아티팩트 이름과 동일해야 함!
