@@ -45,7 +45,7 @@ jobs:
 
       
     - name: Upload artifact # Step의 이름
-      uses: actions/upload-pages-artifact@v2 # actions폴더 내에 있는 upload-pages-artifact@v2를 실행하겠다.
+      uses: actions/upload-artifact@v4 # actions폴더 내에 있는 upload-pages-artifact@v2를 실행하겠다.
       with:
         name: github-pages
         path: ./_site
